@@ -1,0 +1,281 @@
+//let's do it -- Mohammed Mahmoud yasen -- 
+#include <iostream>
+using namespace std;
+
+string Enter_Name(){
+	// enter name part start :
+	string name ;
+	cout << endl <<"Please enter your name here : "  ; 
+	cin >> name ;
+	cout << endl; //enter name part end :)
+	return name; 
+}
+int Enter_Age(){
+	// enter age part stdrt :
+	int age = 0;
+	while(age < 18){	
+	cout << "Please enter your age here : " ; 
+	cin >> age ;
+	cout << endl;
+	if(age>= 18){
+		break;
+	}else{
+		cout << "!!This age ("<<age<<") is not authorized to enter:(\n\nbye bye * " << endl;
+		exit(0);
+		break ;
+	}
+	} // enter age part end :) 
+	return age ; 
+}
+string Enter_Gender(){
+	//gender part here :
+	string gender ; 
+	while(gender != "Male" || gender != "Female"){
+	cout << "Please enter your gender here (Male or Female) : " ; 
+	cin >> gender ;
+	cout << endl;
+	if(gender == "Male" || gender == "Female"){
+		break ;
+		
+	}
+	cout << "Error : Check that you wrote the answer correctly .. try again" << endl ; // if the input is worng .. #Fetra 
+}
+// this part end :) 
+return gender;
+}
+int Check_Answers(string answer,string Good){
+	/*
+	string answer == what the user input >> qn(X)an ; 
+	string good =  An answer must be set in order for the number to increase by one point. If the answer is the opposite, it will decrease by one point
+
+	*/
+	int flag = 10;
+	while(flag == 10){
+	if(Good == "yes" && (answer == "yes" || answer == "y")){
+		flag = 1 ;
+	}else if(Good == "no" && (answer == "no" || answer == "n")){
+	flag = 1 ;
+	}else if(Good == "yes" && (answer == "no" || answer == "n")){
+		
+		flag= 0;
+	}else if(Good == "no" && (answer == "yes" || answer == "y")){
+		flag = 0 ;
+	}else{
+		flag = 15 ;
+		break ;
+	}
+	}
+	return flag;
+}
+
+void error(){
+	cout << endl <<"Error : Wrong input , Please try again :) " << endl  ;
+}
+int The_Test(){
+	cout <<  endl <<"Method : If the answer is yes, write (yes) or (y) , and if it is wrong, write (no) or (n) : " ;
+	int counter = 0 ;
+	int state = 0 ;
+	int h = 0;
+	//-  qn = question number -- example (qn-1 mean : question number one ,, qn1an mean : question number one answer )  -- 
+	// qn - 1 : 
+	h = 0;
+	while(state == 0){
+	string qn1 = "\nDo you care about your personal hygiene ?"  , qn1an ; 
+	cout << endl <<qn1;
+	cin >> qn1an ; 
+	cout << endl ; 
+	h = Check_Answers(qn1an , "yes");
+	if(h == 15 ) { // (h == 15)This means that the entered text is not an appropriate answer ..
+		error(); // this will print : Error : Wrong input , Please try again :)  
+	}else{
+		counter = counter + h ; // if answer == good >>> (h = 1) if not (h = 0) ;
+		break ; 
+	}}
+	//qn - 2 :
+	h = 0;
+	while(state == 0){
+	string qn2 = "Have you stopped your healthy habits and replaced them with unhealthy ones ?"  , qn2an ; 
+	cout << endl <<qn2;
+	cin >> qn2an ; 
+	cout << endl ; 
+	h = Check_Answers(qn2an , "no");
+	if(h == 15 ) {
+		error();
+	}else{
+		counter = counter + h;
+		break ; 
+	}} 
+	//qn - 3 Has your efficiency become low in study or work ?
+	h = 0;
+	while(state == 0){
+	string qn3 = "Has your efficiency become low in study or work ?"  , qn3an ; 
+	cout << endl <<qn3;
+	cin >> qn3an ; 
+	cout << endl ; 
+	h = Check_Answers(qn3an , "no");
+	if(h == 15 ) {
+		error();
+	}else{
+		counter = counter + h;
+		break ; 
+	}} 
+	// qn - 4 Have your social relationships deteriorated ?
+		h = 0;
+	while(state == 0){
+	string qn4 = "Have your social relationships deteriorated ?"  , qn4an ; 
+	cout << endl <<qn4;
+	cin >> qn4an ; 
+	cout << endl ; 
+	h = Check_Answers(qn4an , "no");
+	if(h == 15 ) {
+		error();
+	}else{
+		counter = counter + h;
+		break ; 
+	}} 
+	// qn - 5 Do you feel negative thoughts all the time ?
+		h = 0;
+	while(state == 0){
+	string qn5 = "Do you feel negative thoughts all the time ?"  , qn5an ; 
+	cout << endl <<qn5;
+	cin >> qn5an ; 
+	cout << endl ; 
+	h = Check_Answers(qn5an , "no");
+	if(h == 15 ) {
+		error();
+	}else{
+		counter = counter + h;
+		break ; 
+	}} 
+	// qn - 6 Is it possible to harm yourself and those around you ?
+		h = 0;
+	while(state == 0){
+	string qn6 = "Is it possible to harm yourself and those around you ?"  , qn6an ; 
+	cout << endl <<qn6;
+	cin >> qn6an ; 
+	cout << endl ; 
+	h = Check_Answers(qn6an , "no");
+	if(h == 15 ) {
+		error();
+	}else{
+		counter = counter + h;
+		break ; 
+	}} 
+	// qn - 7 Do you feel bored in your life ? 
+		h = 0;
+	while(state == 0){
+	string qn7 = "Do you feel bored in your life ? "  , qn7an ; 
+	cout << endl <<qn7;
+	cin >> qn7an ; 
+	cout << endl ; 
+	h = Check_Answers(qn7an , "no");
+	if(h == 15 ) {
+		error();
+	}else{
+		counter = counter + h;
+		break ; 
+	}} 
+	// qn - 8 Do you always find yourself getting into the same problems a lot ?
+		h = 0;
+	while(state == 0){
+	string qn8 = "Do you always find yourself getting into the same problems a lot ?"  , qn8an ; 
+	cout << endl <<qn8;
+	cin >> qn8an ; 
+	cout << endl ; 
+	h = Check_Answers(qn8an , "no");
+	if(h == 15 ) {
+		error();
+	}else{
+		counter = counter + h;
+		break ; 
+	}} 
+	// qn - 9 Is your ability to focus low ?
+		h = 0;
+	while(state == 0){
+	string qn9 = "Is your ability to focus low ?"  , qn9an ; 
+	cout << endl <<qn9;
+	cin >> qn9an ; 
+	cout << endl ; 
+	h = Check_Answers(qn9an , "no");
+	if(h == 15 ) {
+		error();
+	}else{
+		counter = counter + h;
+		break ; 
+	}} 
+	//qn - 10 Do you have sleep problems ?
+		h = 0;
+	while(state == 0){
+	string qn10 = "Do you have sleep problems ?"  , qn10an ; 
+	cout << endl <<qn10;
+	cin >> qn10an ; 
+	cout << endl ; 
+	h = Check_Answers(qn10an , "no");
+	if(h == 15 ) {
+		error();
+	}else{
+		counter = counter + h;
+		break ; 
+		
+	}}
+	return counter;
+ 
+}
+
+void The_Case(int res){
+	cout << endl <<"##############################################" << endl ;
+	cout << "Your result is : " << res << endl  ;
+	cout << endl <<"##############################################" << endl ;
+	
+	if(res > 6){
+		cout << endl << "the result >>> You are in a good psychological state.. You do not need any procedures... Take good care of yourself" << endl; 
+	}else if(res == 6){
+		cout << endl << "the result >>> We suggest that you consult a doctor, note: it is not very dangerous.." << endl ;
+	}else if(res < 6){
+		cout << endl << "the result >>> Necessary: You must consult a doctor, to obtain necessary psychological treatment.." << endl ;
+	}
+}
+
+	void greeting(){
+		for(int i = 0 ; i < 45 ;i++){
+			cout << "#";
+			if(i == 44){
+				cout << endl;
+				
+			}
+		}
+		for(int i = 0 ; i < 5 ; i++){
+			if(i == 2 ){
+				cout << "#     welcome to Psychiatric Examinat" << endl;
+			}if(i==3){
+				cout << "#     created by : @Mohammed Yasen " << endl ;
+			}
+			if(i < 4 && i != 2 && i != 3){
+			cout << "#" << endl;}else{
+				cout << "#" << endl ;
+			}
+		}
+		for(int i = 0 ; i < 45 ;i++){
+			cout << "#";
+			if(i == 44){
+				cout << endl;
+			}
+		}
+	}
+	
+void The_Definition(string name , int age , string gender){
+	cout << endl <<"##############################################" << endl ;
+	cout <<endl<< "Name : " << name << "    Age : " << age << "    gender : " << gender << endl ; 
+	cout << endl <<"##############################################" << endl ;
+}
+int main(){
+	greeting(); // This function will display a welcome message nearly line : 234
+	string name = Enter_Name(); // from Enter_Name function ..nearly line : 5
+	int age = Enter_Age(); // from Enter_Age function ..nearly line : 13
+	string gender = Enter_Gender(); // from Enter_Gender function ..nearly line : 30
+	The_Definition(name , age , gender);//print the details about the person ;
+	int res = The_Test(); // The examination takes place here .. nearly line : 73
+	The_Case(res); // This function will show the patient's case .. nearly line : 224
+	return 0;
+		
+} 
